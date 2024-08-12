@@ -96,5 +96,22 @@ namespace GuestBookApp
 
 
         }
+        public static bool CheckForMoreGuests()
+        {
+            string message = "Add more guests?\n Enter [y/n]: ";
+
+            Console.Write(message);
+            string userInput = Console.ReadLine();
+
+            if (userInput.ToLower() == "y")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
     }
 }
