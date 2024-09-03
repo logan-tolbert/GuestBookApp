@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuestBookApp
+namespace ConsoleUI
 {
     internal class GuestBook
     {

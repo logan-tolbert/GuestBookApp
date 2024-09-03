@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace GuestBookApp
+namespace ConsoleUI
 {
     internal static class ConsoleMessages
     {
@@ -17,11 +17,11 @@ namespace GuestBookApp
 
         public static string GetUserName()
         {
-            
+
             string message = "Enter your name: ";
-            string name = String.Empty;
+            string name = string.Empty;
             bool getInput = true;
-            
+
             do
             {
                 Console.Write(message);
@@ -45,8 +45,8 @@ namespace GuestBookApp
             Console.Write(greeting);
             Console.WriteLine("Press enter to start guest services.");
             Console.ReadKey();
-            
-            Console.Clear();     
+
+            Console.Clear();
         }
 
         public static string GetGuestName()
@@ -61,7 +61,7 @@ namespace GuestBookApp
             {
                 Console.Write(getName);
                 lastName = Console.ReadLine();
-                
+
                 if (string.IsNullOrEmpty(getName))
                 {
                     Console.WriteLine("Invalid Input");
@@ -86,10 +86,11 @@ namespace GuestBookApp
                 Console.Write(GetNumber);
                 isNumber = int.TryParse(Console.ReadLine(), out NumberInParty);
 
-                if(isNumber)
+                if (isNumber)
                 {
                     isNumber = true;
                 }
+                Console.WriteLine("Input invalid.");
             } while (isNumber == false);
             Console.WriteLine("Enjoy the party!!!!");
             return NumberInParty;
@@ -111,7 +112,24 @@ namespace GuestBookApp
             {
                 return false;
             }
-            
+
         }
+
+        public static void OutputGuestList(Dictionary<string, int> database)
+        {
+            foreach (KeyValuePair<string, int> entry in database)
+            {
+                Console.WriteLine($"Name: {entry.Key}\n" +
+                    $"Party of {entry.Value}\n");
+            }
+
+        }
+        
+        public static void OutputTotalGuests(int numberOfGuests)
+        {
+            Console.WriteLine($"Total nubmer of attendees: {numberOfGuests}");
+        }
+    
     }
+
 }
